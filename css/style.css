@@ -70,7 +70,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Outfit", sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 300;
   color: rgba(0, 0, 0, 0.5);
   line-height: 150%;
@@ -4241,4 +4241,102 @@ html.is-animating .mil-menu-frame {
 .mil-review-link:hover{
     opacity: .75;
     cursor: pointer;
+}
+.hero-description{
+    color:#B8B8B8;
+}
+/*==================================================
+
+CONTACT SECTION
+
+==================================================*/
+
+.mil-contact-card{
+    display:block;
+    height:100%;
+    padding:48px;
+    background:#111111;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:26px;
+    text-decoration:none;
+    transition:.35s ease;
+}
+
+.mil-contact-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#F7A000;
+
+    background:#181818;
+
+}
+
+.mil-contact-icon{
+
+    width:64px;
+    height:64px;
+
+    border-radius:18px;
+
+    background:#1B1B1B;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin-bottom:30px;
+
+    transition:.35s;
+
+}
+
+.mil-contact-icon svg{
+
+    width:28px;
+
+    height:28px;
+
+    fill:#F7A000;
+
+    transition:.35s;
+
+}
+
+.mil-contact-card:hover .mil-contact-icon{
+
+    background:#F7A000;
+
+}
+
+.mil-contact-card:hover .mil-contact-icon svg{
+
+    fill:#000;
+
+}
+
+.mil-contact-card h4{
+
+    margin-bottom:14px;
+
+}
+
+.mil-contact-card p{
+
+    margin:0;
+
+    line-height:1.8;
+
+}
+
+@media(max-width:991px){
+
+    .mil-contact-card{
+
+        padding:36px;
+
+    }
+
 }
