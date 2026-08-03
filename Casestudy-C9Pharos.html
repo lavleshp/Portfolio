@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>C9Pharos | Lavlesh Pandey - Lead Product Designer</title>
+    <meta name="description" content="A comprehensive mobile-first cybersecurity monitoring platform UI/UX redesign case study by Lead Product Designer Lavlesh Pandey.">
+    <meta name="keywords" content="Product Design, UI/UX, Cybersecurity, Mobile App Design, Case Study, Lavlesh Pandey, UX Research">
+    <meta name="author" content="Lavlesh Pandey">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0a0915">
+    
+    <link rel="canonical" href="https://lavleshpandey.com/projects/c9pharos">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="manifest.webmanifest">
+
+    <meta property="og:title" content="C9Pharos Platform | Product Design Case Study">
+    <meta property="og:description" content="A comprehensive mobile-first cybersecurity monitoring platform UI/UX redesign featuring scalable design systems and progressive disclosure.">
+    <meta property="og:image" content="https://lavleshpandey.com/img/photo/pharos2.jpg">
+    <meta property="og:url" content="https://lavleshpandey.com/projects/c9pharos">
+    <meta property="og:type" content="article">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="C9Pharos Platform | Product Design Case Study">
+    <meta name="twitter:description" content="A comprehensive mobile-first cybersecurity monitoring platform UI/UX redesign by Lavlesh Pandey.">
+    <meta name="twitter:image" content="https://lavleshpandey.com/img/photo/pharos2.jpg">
+
+    <link rel="stylesheet" href="css/plugins/bootstrap-grid.css">
+    <link rel="stylesheet" href="css/plugins/font-awesome.min.css">
+    <link rel="stylesheet" href="css/plugins/swiper.min.css">
+    <link rel="stylesheet" href="css/plugins/fancybox.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        :root {
+            --c9-border: rgba(255, 255, 255, 0.08);
+            --c9-bg: #120f26; 
+            --c9-page-bg: #0a0915; 
+            --c9-dark: #ffffff; 
+            --c9-muted: #9ba1b0; 
+            --c9-accent: #642bff; 
+            --c9-accent-gradient: linear-gradient(90deg, #3725cf, #642bff);
+            --c9-cta: #ff1b51; 
+            --c9-radius: 12px;
+            --c9-shadow-sm: 0 8px 24px rgba(0,0,0,0.4);
+            --c9-shadow-md: 0 12px 32px rgba(0,0,0,0.5);
+            --c9-shadow-lg: 0 24px 60px rgba(0,0,0,0.6);
+            --c9-shadow-hover: 0 16px 40px rgba(100, 43, 255, 0.15);
+        }
+
+        body, .mil-wrapper, .mil-content, .mil-menu-frame, .mil-curtain, .mil-preloader {
+            background-color: var(--c9-page-bg) !important;
+            color: var(--c9-muted) !important;
+        }
+
+        .mil-frame { background-color: transparent !important; }
+        .mil-soft-bg { background-color: #0d0b1a !important; }
+        .mil-dark-bg { background-color: #06050d !important; }
+        .mil-divider { background-color: var(--c9-border) !important; }
+        
+        h1, h2, h3, h4, h5, h6, .mil-h1, .mil-h2, .mil-h3, .mil-h4, .mil-h5, .mil-h6, .mil-dark, .mil-logo {
+            color: var(--c9-dark) !important;
+        }
+        
+        p, .mil-text-sm, .mil-text-lg, li { color: var(--c9-muted) !important; }
+        .mil-muted { color: var(--c9-muted) !important; }
+        
+        .mil-button {
+            background: var(--c9-accent-gradient) !important;
+            border-color: transparent !important;
+            color: #ffffff !important;
+            box-shadow: 0 8px 24px rgba(100, 43, 255, 0.25) !important;
+        }
+        
+        .mil-link.mil-dark span { color: var(--c9-dark) !important; }
+        .mil-link.mil-dark:hover span { color: var(--c9-accent) !important; }
+        .mil-arrow path { fill: var(--c9-dark) !important; }
+        .mil-progress-track .mil-progress { background-color: var(--c9-accent) !important; }
+        .mil-ball { border-color: rgba(255, 255, 255, 0.2) !important; }
+        .mil-menu-btn span, .mil-menu-btn span::after, .mil-menu-btn span::before { background: var(--c9-dark) !important; }
+        
+        .c9-card {
+            background: var(--c9-bg);
+            border: 1px solid var(--c9-border);
+            border-radius: var(--c9-radius);
+            padding: 48px;
+            height: 100%;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        
+        .c9-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--c9-shadow-hover);
+            border-color: var(--c9-accent);
+        }
+        
+        .c9-card-sm { padding: 40px; }
+        
+        /* ===========================
+           C9 Feature Image
+        =========================== */
+        .c9-img-frame-md {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            background: #14122b;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .c9-img-frame-md a:first-child {
+            display: block;
+        }
+
+        .c9-img-frame-md img {
+            display: block;
+            width: 100%;
+            height: auto;
+            position: relative !important;
+            top: auto !important;
+            left: auto !important;
+            object-fit: contain !important;
+            object-position: center;
+            transition: 0.4s ease;
+        }
+
+        .c9-img-frame-md:hover img {
+            transform: scale(1.02);
+        }
+
+        .c9-img-frame-md .mil-zoom-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 20;
+        }
+
+        /* Disable Ashley's aspect ratio */
+        .c9-img-frame-md.mil-horizontal {
+            padding-bottom: 0 !important;
+        }
+
+        .c9-img-frame-md > img {
+            position: relative !important;
+        }
+        
+        .c9-callout { background: var(--c9-bg); border-left: 3px solid var(--c9-accent); border-radius: 0 var(--c9-radius) var(--c9-radius) 0; }
+        .c9-quote-line { border-left: 2px solid var(--c9-accent); padding-left: 20px; }
+        .c9-ia-box { background: var(--c9-bg); border-radius: var(--c9-radius); border: 1px solid var(--c9-border); justify-content: space-between; }
+        
+        .c9-label { text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin: 0; }
+        .c9-stat-val { font-weight: 300; }
+        .c9-stat-unit { font-size: 0.6em; }
+        .c9-stat-unit-ml { font-size: 0.6em; margin-left: 4px; }
+        .c9-opacity-15 { opacity: 0.15; }
+        .c9-m-0 { margin: 0 !important; }
+
+        .c9-text-reading { line-height: 1.8; color: var(--c9-muted) !important; margin-bottom: 0; }
+        .c9-text-reading-mb { line-height: 1.8; color: var(--c9-muted) !important; margin-bottom: 30px; }
+        .c9-text-reading-lg { line-height: 1.8; color: var(--c9-muted) !important; margin-bottom: 45px; }
+        
+        .c9-chip-list { display: flex; flex-wrap: wrap; gap: 12px; list-style: none; padding: 0; margin: 0; }
+        .c9-chip { background: var(--c9-bg); border: 1px solid var(--c9-border); border-radius: 40px; padding: 10px 24px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--c9-dark); transition: all 0.3s ease; cursor: default; }
+        .c9-chip:hover { background: var(--c9-accent); color: #fff !important; border-color: var(--c9-accent); }
+        
+        .c9-timeline { display: flex; justify-content: space-between; position: relative; padding-top: 24px; }
+        .c9-timeline::before { content: ''; position: absolute; top: 29px; left: 0; width: 100%; height: 2px; background: var(--c9-border); z-index: 1; }
+        .c9-timeline-step { position: relative; z-index: 2; background: transparent; padding-right: 24px; flex: 1; }
+        .c9-timeline-step:last-child { padding-right: 0; flex: 0 1 auto; }
+        .c9-timeline-node { width: 12px; height: 12px; background: var(--c9-page-bg); border: 2px solid var(--c9-border); border-radius: 50%; margin-bottom: 24px; transition: all 0.3s ease; }
+        .c9-timeline-step:hover .c9-timeline-node, .c9-timeline-step.active .c9-timeline-node { background: var(--c9-accent); border-color: var(--c9-accent); transform: scale(1.2); box-shadow: 0 0 10px var(--c9-accent); }
+        
+        .c9-ia-container { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+        .c9-ia-pill-base { padding: 12px 24px; border-radius: 40px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .c9-ia-pill { background: var(--c9-accent); color: #fff; border: 1px solid var(--c9-accent); }
+        .c9-ia-pill-outline { background: transparent; border: 1px solid var(--c9-border); color: var(--c9-dark); }
+        .c9-ia-arrow { color: var(--c9-border); font-size: 14px; }
+        
+        .c9-sys-swatch { width: 48px; height: 48px; border-radius: 50%; display: inline-block; margin-right: 12px; border: 1px solid var(--c9-border); }
+        .c9-sys-type { display: flex; align-items: baseline; gap: 16px; margin-bottom: 16px; border-bottom: 1px solid var(--c9-border); padding-bottom: 16px; }
+        .c9-sys-label { display: block; margin-bottom: 4px; color: var(--c9-dark); }
+        .c9-sys-label-lg { display: block; margin-bottom: 15px; color: var(--c9-dark); }
+        .c9-sys-list { border-bottom: 1px solid var(--c9-border); padding-bottom: 15px; margin-bottom: 15px; font-size: 14px; font-weight: 500; display: flex; align-items: center; color: var(--c9-dark); }
+        .c9-sys-list:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .c9-sys-list::before { content: ''; display: inline-block; width: 6px; height: 6px; background: var(--c9-accent); margin-right: 15px; border-radius: 50%; }
+        
+        .c9-stats-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 30px; text-align: center; margin: 0; }
+        .c9-optical-align { display: flex; flex-direction: column; justify-content: center; height: 100%; }
+        
+        .c9-evolution-item small {
+            display: block;
+            margin-top: 3px;
+            font-size: 11px;
+            line-height: 1.35;
+            letter-spacing: 0.2px;
+            color: rgba(255, 255, 255, 0.55);
+        }
+        
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+        
+        .c9-evolution {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 40px;
+            flex-wrap: nowrap;
+        }
+
+        .c9-evolution-item {
+            flex: 1;
+            min-width: 0;
+            padding: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            background: #141321;
+            transition: 0.3s;
+        }
+
+        .c9-evolution-item.active {
+            border-color: #7c4dff;
+            box-shadow: 0 0 25px rgba(124, 77, 255, 0.15);
+        }
+
+        .c9-tag {
+            display: inline-block;
+            margin-bottom: 10px;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #9d95b8;
+        }
+
+        .c9-evolution-item h5 {
+            margin: 0 0 6px;
+            font-size: 20px;
+            color: #fff;
+        }
+
+        .c9-evolution-item small {
+            display: block;
+            color: #8c89a6;
+            line-height: 1.5;
+        }
+.c9-evolution-item{
+    min-height: 165px;
+    display:flex;
+    flex-direction:column;
+}
+.c9-evolution-item.active{
+    border:1px solid #7B4DFF;
+    box-shadow:0 0 35px rgba(123,77,255,.18);
+    background:linear-gradient(
+        180deg,
+        rgba(123,77,255,.08),
+        rgba(255,255,255,.02)
+    );
+}
+        .c9-arrow{
+    color:#7B4DFF;
+    font-size:26px;
+    font-weight:700;
+}
+
+        @media (max-width: 991px) {
+            .c9-timeline { flex-direction: column; }
+            .c9-timeline::before { width: 2px; height: 100%; left: 5px; top: 0; }
+            .c9-timeline-step { padding-right: 0; padding-left: 32px; margin-bottom: 40px; }
+            .c9-timeline-node { position: absolute; left: 0; top: 5px; margin-bottom: 0; }
+            .c9-stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .c9-stats-grid > div:last-child { grid-column: span 2; }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Person",
+                "@id": "https://lavleshpandey.com/#person",
+                "name": "Lavlesh Pandey",
+                "jobTitle": "Lead Product Designer",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressCountry": "Thailand"
+                },
+                "url": "https://lavleshpandey.com"
+            },
+            {
+                "@type": "CreativeWork",
+                "name": "C9Pharos Platform Design Case Study",
+                "headline": "Enterprise Cybersecurity Platform Mobile UI/UX Redesign",
+                "author": {"@id": "https://lavleshpandey.com/#person"},
+                "image": "https://lavleshpandey.com/img/photo/pharos2.jpg"
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://lavleshpandey.com/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Projects",
+                        "item": "https://lavleshpandey.com/projects.html"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "C9Pharos Platform"
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+</head>
+
+<body>
+    <div class="mil-wrapper" id="top">
+        <div class="mil-ball" aria-hidden="true">
+            <span class="mil-icon-1">
+                <svg viewBox="0 0 128 128">
+                    <path d="M106.1,41.9c-1.2-1.2-3.1-1.2-4.2,0c-1.2,1.2-1.2,3.1,0,4.2L116.8,61H11.2l14.9-14.9c1.2-1.2,1.2-3.1,0-4.2	c-1.2-1.2-3.1-1.2-4.2,0l-20,20c-1.2,1.2-1.2,3.1,0,4.2l20,20c0.6,0.6,1.4,0.9,2.1,0.9s1.5-0.3,2.1-0.9c1.2-1.2,1.2-3.1,0-4.2	L11.2,67h105.5l-14.9,14.9c-1.2,1.2-1.2,3.1,0,4.2c0.6,0.6,1.4,0.9,2.1,0.9s1.5-0.3,2.1-0.9l20-20c1.2-1.2,1.2-3.1,0-4.2L106.1,41.9	z" />
+                </svg>
+            </span>
+            <div class="mil-more-text">Explore</div>
+            <div class="mil-choose-text">Select</div>
+        </div>
+
+        <!-- 
+        <div class="mil-preloader">
+            <div class="mil-preloader-animation">
+                <div class="mil-pos-abs mil-animation-1">
+                    <p class="mil-h3 mil-muted mil-thin">Product</p>
+                    <p class="mil-h3 mil-muted">Design</p>
+                    <p class="mil-h3 mil-muted mil-thin">Excellence</p>
+                </div>
+                <div class="mil-pos-abs mil-animation-2">
+                    <div class="mil-reveal-frame">
+                        <p class="mil-reveal-box"></p>
+                        <p class="mil-h3 mil-muted mil-thin">lavleshpandey.com</p>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        -->
+
+        <div class="mil-progress-track">
+            <div class="mil-progress"></div>
+        </div>
+
+        <header class="mil-menu-frame" aria-label="Main Header">
+            <div class="mil-frame-top">
+                <a href="index.html" class="mil-logo" aria-label="Homepage">L.</a>
+                <button class="mil-menu-btn" aria-label="Toggle Navigation" aria-expanded="false" aria-controls="swupMenu">
+                    <span></span>
+                </button>
+            </div>
+            <div class="container">
+                <div class="mil-menu-content">
+                    <div class="row justify-content-between">
+                        <div class="col-xl-5">
+                            <nav class="mil-main-menu" id="swupMenu" aria-label="Primary Navigation">
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li class="mil-active"><a href="projects.html">Projects</a></li>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="resume.html">Resume</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="mil-menu-right-frame">
+                                <div class="mil-animation-in">
+                                    <div class="mil-animation-frame">
+                                        <div class="mil-animation mil-position-1 mil-scale" data-value-1="2" data-value-2="2"></div>
+                                    </div>
+                                </div>
+                                <div class="mil-menu-right">
+                                    <div class="row">
+                                        <div class="col-lg-8 mil-mb-60">
+                                            <h6 class="mil-muted mil-mb-30">Featured Projects</h6>
+                                            <ul class="mil-menu-list">
+                                                <li><a href="project-c9pharos.html" class="mil-light-soft mil-active">C9Pharos Platform</a></li>
+                                                <li><a href="project-drone.html" class="mil-light-soft">Drone Management App</a></li>
+                                                <li><a href="project-music.html" class="mil-light-soft">Audio Production Suite</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-4 mil-mb-60">
+                                            <h6 class="mil-muted mil-mb-30">Connect</h6>
+                                            <ul class="mil-menu-list">
+                                                <li><a href="https://linkedin.com/in/lavleshpandey" target="_blank" rel="noopener noreferrer" class="mil-light-soft">LinkedIn</a></li>
+                                                <li><a href="https://behance.net/" target="_blank" rel="noopener noreferrer" class="mil-light-soft">Behance</a></li>
+                                                <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="mil-light-soft">GitHub</a></li>
+                                                <li><a href="mailto:hello@lavleshpandey.com" class="mil-light-soft">Email Me</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="mil-curtain" aria-hidden="true"></div>
+
+        <div class="mil-frame">
+            <div class="mil-frame-top">
+                <a href="index.html" class="mil-logo" aria-label="Homepage">L.</a>
+                <button class="mil-menu-btn" aria-label="Toggle Navigation" aria-expanded="false" aria-controls="swupMenu">
+                    <span></span>
+                </button>
+            </div>
+            <div class="mil-frame-bottom">
+                <div class="mil-current-page"></div>
+                <div class="mil-back-to-top">
+                    <a href="#top" class="mil-link mil-dark mil-arrow-place" aria-label="Back to top">
+                        <span>Back to top</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <main class="mil-content">
+            <article id="swupMain" class="mil-main-transition">
+                <header class="mil-inner-banner" aria-label="Project Hero Banner">
+                    <div class="mil-banner-content mil-up">
+                        <div class="mil-animation-frame" aria-hidden="true">
+                            <div class="mil-animation mil-position-4 mil-dark mil-scale" data-value-1="6" data-value-2="1.4"></div>
+                        </div>
+                        <div class="container">
+                            <nav aria-label="Breadcrumbs">
+                                <ul class="mil-breadcrumbs mil-mb-60">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="projects.html">Projects</a></li>
+                                    <li><a href="project-c9pharos.html" aria-current="page">C9Pharos</a></li>
+                                </ul>
+                            </nav>
+                            <h1 class="mil-mb-60">C9Pharos <span class="mil-thin">Platform</span></h1>
+                            <a href="#case-study" class="mil-link mil-dark mil-arrow-place mil-down-arrow" aria-label="Scroll to case study details">
+                                <span>Read Case Study</span>
+                            </a>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="mil-p-120-120" id="case-study">
+                    <figure class="mil-image-frame mil-fw mil-up mil-mb-120 c9-img-frame">
+                        <img src="img/photo/pharos2.jpg" alt="C9Pharos Platform Mobile Dashboard Showcase" width="1920" height="1080" fetchpriority="high" decoding="async">
+                        <a href="img/photo/pharos2.jpg" data-fancybox="gallery" data-no-swup class="mil-zoom-btn" aria-label="View high resolution image">
+                            <img src="img/icons/zoom.svg" alt="" aria-hidden="true">
+                        </a>
+                    </figure>
+                    
+                    <div class="container">
+                        <!-- 
+                        <section class="row justify-content-between mil-up mil-center mil-mb-80">
+                            <div class="col-lg-2 col-md-4 col-6 mil-mb-30">
+                                <h3 class="mil-mb-15">10K+</h3>
+                                <p class="mil-text-sm mil-muted">Downloads</p>
+                            </div>
+                            <div class="col-lg-2 col-md-4 col-6 mil-mb-30">
+                                <h3 class="mil-mb-15">4.5★</h3>
+                                <p class="mil-text-sm mil-muted">Play Rating</p>
+                            </div>
+                            <div class="col-lg-2 col-md-4 col-6 mil-mb-30">
+                                <h3 class="mil-mb-15">66</h3>
+                                <p class="mil-text-sm mil-muted">Reviews</p>
+                            </div>
+                            <div class="col-lg-2 col-md-4 col-6 mil-mb-30">
+                                <h3 class="mil-mb-15">2 Mo.</h3>
+                                <p class="mil-text-sm mil-muted">Duration</p>
+                            </div>
+                            <div class="col-lg-2 col-md-4 col-12 mil-mb-30">
+                                <h3 class="mil-mb-15">Solo</h3>
+                                <p class="mil-text-sm mil-muted">Designer</p>
+                            </div>
+                        </section> 
+                        -->
+
+                        <div class="mil-divider mil-mb-120 mil-up" aria-hidden="true"></div>
+
+                        <section class="row justify-content-between mil-mb-120" aria-labelledby="overview-heading">
+                            <div class="col-lg-4 mil-mb-40">
+                                <h2 id="overview-heading" class="mil-up">Overview</h2>
+                            </div>
+                            <div class="col-lg-7">
+                                <p class="mil-up mil-text-lg c9-text-reading-lg">C9Pharos is an enterprise cybersecurity platform designed to help organizations monitor website health, SSL certificates, uptime, domain information, vulnerabilities, email breaches, and security intelligence from a single application.</p>
+                                
+                                <!-- 
+                                <dl class="row mil-up">
+                                    <div class="col-md-6 mil-mb-30">
+                                        <dt class="mil-h6 mil-mb-15">Role</dt>
+                                        <dd class="mil-text-sm mil-muted c9-text-reading">Lead UI/UX Designer</dd>
+                                    </div>
+                                    <div class="col-md-6 mil-mb-30">
+                                        <dt class="mil-h6 mil-mb-15">Platform</dt>
+                                        <dd class="mil-text-sm mil-muted c9-text-reading">Android Mobile App</dd>
+                                    </div>
+                                </dl> 
+                                -->
+                            </div>
+                        </section>
+
+                        <section class="row mil-mb-120" aria-label="Core Project Objectives">
+                            <div class="col-md-4 mil-mb-30">
+                                <div class="c9-card mil-up">
+                                    <div class="mil-h1 mil-muted mil-mb-30 c9-opacity-15" aria-hidden="true">01</div>
+                                    <h3 class="mil-h4 mil-mb-15">End-to-End Design</h3>
+                                    <p class="mil-text-sm mil-muted c9-text-reading">Complete ownership of the Mobile UI/UX Design lifecycle from research and strategy to high-fidelity component handoff.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mil-mb-30">
+                                <div class="c9-card mil-up">
+                                    <div class="mil-h1 mil-muted mil-mb-30 c9-opacity-15" aria-hidden="true">02</div>
+                                    <h3 class="mil-h4 mil-mb-15">SaaS Complexity</h3>
+                                    <p class="mil-text-sm mil-muted c9-text-reading">Transformed complex cybersecurity metrics and technical jargon into approachable, instantly scannable mobile insights.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mil-mb-30">
+                                <div class="c9-card mil-up">
+                                    <div class="mil-h1 mil-muted mil-mb-30 c9-opacity-15" aria-hidden="true">03</div>
+                                    <h3 class="mil-h4 mil-mb-15">Brand Evolution</h3>
+                                    <p class="mil-text-sm mil-muted c9-text-reading">Redesigned the entire ecosystem to support the successful transition from legacy C9Eye to the expanded C9Pharos brand.</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="row align-items-center justify-content-between flex-row-reverse mil-mb-120" aria-labelledby="challenge-heading">
+                            <div class="col-lg-6 mil-mb-40">
+                                <figure class="mil-image-frame mil-horizontal mil-up c9-img-frame">
+                                    <img src="img/photo/pharos3.png" style="width: 100%; height: auto; object-fit: contain;" alt="Visualization of fragmented workflows in legacy security tools" width="800" height="600" loading="lazy" decoding="async">
+                                    <a href="img/photo/pharos3.png" data-fancybox="pharos-comparison" data-no-swup class="mil-zoom-btn" aria-label="Expand image">
+                                        <img src="img/icons/zoom.svg" alt="" aria-hidden="true">
+                                    </a>
+                                </figure>
+                            </div>
+                            <div class="col-lg-5 mil-mb-40">
+                                <h2 id="challenge-heading" class="mil-up mil-mb-30">The Challenge</h2>
+                                <p class="mil-up c9-text-reading-mb">Cybersecurity products often overwhelm users with technical terminology, fragmented workflows, and data-heavy dashboards. Users were forced to switch between multiple disjointed tools to monitor critical infrastructure.</p>
+                                <div class="mil-up c9-quote-line">
+                                    <p class="mil-text-sm c9-text-reading">
+                                        <strong>The Goal:</strong> Not just designing beautiful screens, but transforming complex security data into a unified, instant-read mobile experience that IT professionals could understand within seconds.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="row justify-content-between mil-mb-120" aria-labelledby="role-heading">
+                            <div class="col-lg-4 mil-mb-40">
+                                <h2 id="role-heading" class="mil-up">My Role</h2>
+                            </div>
+                            <div class="col-lg-7">
+                                <p class="mil-up mil-text-lg c9-text-reading-lg">As the sole designer on the project, I was responsible for bridging business objectives, technical constraints, and user needs to deliver a cohesive product.</p>
+                                <ul class="c9-chip-list mil-up" aria-label="Skills utilized">
+                                    <li class="c9-chip">UX Strategy</li>
+                                    <li class="c9-chip">Information Architecture</li>
+                                    <li class="c9-chip">Wireframing</li>
+                                    <li class="c9-chip">Visual UI Design</li>
+                                    <li class="c9-chip">Design System</li>
+                                    <li class="c9-chip">Prototyping</li>
+                                    <li class="c9-chip">Dev Handoff</li>
+                                    <li class="c9-chip">Design QA</li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <section class="mil-mb-120" aria-labelledby="process-heading">
+                            <div class="row mil-mb-60">
+                                <div class="col-12">
+                                    <h2 id="process-heading" class="mil-up">Design Process</h2>
+                                </div>
+                            </div>
+                            <div class="c9-timeline mil-up">
+                                <div class="c9-timeline-step">
+                                    <div class="c9-timeline-node"></div>
+                                    <h3 class="mil-h6 mil-mb-10">01. Define</h3>
+                                    <p class="mil-text-sm mil-muted c9-text-reading">Problem framing</p>
+                                </div>
+                                <div class="c9-timeline-step">
+                                    <div class="c9-timeline-node"></div>
+                                    <h3 class="mil-h6 mil-mb-10">02. Context</h3>
+                                    <p class="mil-text-sm mil-muted c9-text-reading">Architecture</p>
+                                </div>
+                                <div class="c9-timeline-step">
+                                    <div class="c9-timeline-node"></div>
+                                    <h3 class="mil-h6 mil-mb-10">03. Wireframes</h3>
+                                    <p class="mil-text-sm mil-muted c9-text-reading">Low fidelity</p>
+                                </div>
+                                <div class="c9-timeline-step">
+                                    <div class="c9-timeline-node"></div>
+                                    <h3 class="mil-h6 mil-mb-10">04. Interface</h3>
+                                    <p class="mil-text-sm mil-muted c9-text-reading">High fidelity</p>
+                                </div>
+                                <div class="c9-timeline-step">
+                                    <div class="c9-timeline-node"></div>
+                                    <h3 class="mil-h6 mil-mb-10">05. Prototype</h3>
+                                    <p class="mil-text-sm mil-muted c9-text-reading">Interactions</p>
+                                </div>
+                                <div class="c9-timeline-step active">
+                                    <div class="c9-timeline-node"></div>
+                                    <h3 class="mil-h6 mil-mb-10">06. QA</h3>
+                                    <p class="mil-text-sm mil-muted c9-text-reading">Implementation</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="row justify-content-between mil-mb-120" aria-labelledby="evolution-heading">
+                            <div class="col-lg-5 mil-mb-60">
+                                <h2 id="evolution-heading" class="mil-up mil-mb-30">Product Evolution</h2>
+                                <p class="mil-up c9-text-reading-lg">The application originally launched as C9Eye. As capabilities scaled far beyond basic uptime checks into a holistic cybersecurity ecosystem, it required a complete brand and UI evolution to become C9Pharos.</p>
+                                <div class="c9-evolution mil-up">
+                                    <div class="c9-evolution-item">
+                                        <span class="c9-tag">Before</span>
+                                        <h6>C9Eye</h6>
+                                        <small>Website Monitoring</small>
+                                    </div>
+                                    <span class="c9-arrow">→</span>
+                                    <div class="c9-evolution-item">
+                                        <span class="c9-tag">Transition</span>
+                                        <h6>Brand Evolution</h6>
+                                        <small>Expanded Features</small>
+                                    </div>
+                                    <span class="c9-arrow">→</span>
+                                    <div class="c9-evolution-item active">
+                                        <span class="c9-tag">After</span>
+                                        <h6>C9Pharos</h6>
+                                        <small>Cybersecurity Platform</small>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6 mil-mb-60">
+                                <h2 class="mil-up mil-mb-30">Information Architecture</h2>
+                                <p class="mil-up c9-text-reading-lg">To prevent nested navigation fatigue, I established a flat hierarchy prioritizing core experiences, ensuring critical data is immediately accessible.</p>
+                                <div class="c9-ia-container mil-up">
+                                    <div class="c9-ia-pill-base c9-ia-pill">Monitoring</div>
+                                    <div class="c9-ia-arrow" aria-hidden="true">&rarr;</div>
+                                    <div class="c9-ia-pill-base c9-ia-pill">Insights</div>
+                                    <div class="c9-ia-arrow" aria-hidden="true">&rarr;</div>
+                                    <div class="c9-ia-pill-base c9-ia-pill">Vulnerabilities</div>
+                                    <div class="c9-ia-arrow" aria-hidden="true">&rarr;</div>
+                                    <div class="c9-ia-pill-base c9-ia-pill-outline">PwnCheck</div>
+                                    <div class="c9-ia-arrow" aria-hidden="true">&rarr;</div>
+                                    <div class="c9-ia-pill-base c9-ia-pill-outline">Briefs</div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <div class="mil-divider mil-mb-120 mil-up" aria-hidden="true"></div>
+
+                        <div class="mil-center mil-mb-120">
+                            <h2 class="mil-up" id="ux-strategy-heading">UX Strategy & Features</h2>
+                        </div>
+
+                        <section class="row align-items-center justify-content-between mil-mb-120" aria-label="Feature: Gradual Onboarding">
+                            <div class="col-lg-6 mil-mb-40">
+                                <figure class="mil-image-frame mil-horizontal mil-up c9-img-frame-md">
+                                    <a href="img/photo/pharos5.png" data-fancybox="gallery" data-no-swup aria-label="Expand image">
+                                        <img src="img/photo/pharos5.png" alt="Gradual Onboarding">
+                                    </a>
+                                    <a href="img/photo/pharos5.png" class="mil-zoom-btn" data-fancybox="gallery" data-no-swup>
+                                        <img src="img/icons/zoom.svg" alt="" aria-hidden="true">
+                                    </a>
+                                </figure>
+                            </div>
+
+                            <div class="col-lg-5 mil-mb-40">
+                                <p class="mil-up mil-text-sm mil-muted mil-mb-15 c9-label">Decreasing Time-to-Value</p>
+                                <h3 class="mil-up mil-h2 mil-mb-30">Gradual Onboarding</h3>
+                                <p class="mil-up c9-text-reading-mb">Instead of overwhelming users with every capability at once, the onboarding introduces one core feature per screen. This progressive approach helps users understand the product faster while reducing cognitive load.</p>
+                                <div class="mil-up c9-quote-line">
+                                    <p class="mil-text-sm c9-text-reading">
+                                        <strong>Design Reasoning:</strong> Progressive disclosure improves feature discoverability, builds confidence, and reduces first-session friction.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="mil-mb-120" aria-label="Feature: Dashboard Monitoring">
+                            <div class="row justify-content-center mil-mb-60">
+                                <div class="col-lg-8 mil-center">
+                                    <p class="mil-up mil-text-sm mil-muted mil-mb-15 c9-label">Actionable insights at a glance</p>
+                                    <h3 class="mil-up mil-h2 mil-mb-30">Dashboard & Monitoring</h3>
+                                    <p class="mil-up c9-text-reading">The dashboard is engineered for split-second decision-making. Eschewing complex data tables, critical information is abstracted into highly legible, reusable status cards.</p>
+                                </div>
+                            </div>
+                            <figure class="mil-image-frame mil-fw mil-up c9-img-frame-md">
+                                <img src="img/photo/pharos2.jpg" alt="Main Dashboard UI Presentation" width="1920" height="1080" loading="lazy" decoding="async">
+                                <a href="img/photo/pharos2.jpg" data-fancybox="gallery" data-no-swup class="mil-zoom-btn" aria-label="Expand image">
+                                    <img src="img/icons/zoom.svg" alt="" aria-hidden="true">
+                                </a>
+                            </figure>
+                        </section>
+
+                        <section class="row align-items-center justify-content-between flex-row-reverse mil-mb-120" aria-label="Feature: Vulnerability Assessment">
+                            <div class="col-lg-6 mil-mb-40">
+                                <figure class="mil-image-frame mil-horizontal mil-up c9-img-frame-md">
+                                    <img src="img/photo/pharos2.jpg" alt="Vulnerability Reporting UI" width="800" height="600" loading="lazy" decoding="async">
+                                    <a href="img/photo/pharos2.jpg" data-fancybox="gallery" data-no-swup class="mil-zoom-btn" aria-label="Expand image">
+                                        <img src="img/icons/zoom.svg" alt="" aria-hidden="true">
+                                    </a>
+                                </figure>
+                            </div>
+                            <div class="col-lg-5 mil-mb-40">
+                                <div class="c9-optical-align">
+                                    <p class="mil-up mil-text-sm mil-muted mil-mb-15 c9-label">From raw data to remediation</p>
+                                    <h3 class="mil-up mil-h2 mil-mb-30">Vulnerability Assessment</h3>
+                                    <p class="mil-up c9-text-reading-mb">Security reports notoriously paralyze users with lengthy technical findings. I redesigned this flow to aggregate data into a top-level Overall Risk Score, supported by color-coded Severity Categories.</p>
+                                    <div class="mil-up c9-quote-line">
+                                        <p class="mil-text-sm c9-text-reading">
+                                            <strong>Design Reasoning:</strong> Visualizing risk allows users to prioritize critical remediation immediately, while nested panels house the granular, actionable resolution recommendations for developers.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <div class="mil-divider mil-mb-120 mil-up" aria-hidden="true"></div>
+
+                        <section class="mil-mb-120" aria-labelledby="pwncheck-heading">
+                            <div class="row justify-content-center mil-mb-90">
+                                <div class="col-lg-8 mil-center">
+                                    <h2 id="pwncheck-heading" class="mil-up mil-mb-30">PwnCheck Experience Design</h2>
+                                    <p class="mil-up c9-text-reading">PwnCheck enables users to scan their emails against known public data breaches. This flow was meticulously designed around three distinct emotional states to manage user anxiety and drive clear action.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="row justify-content-between">
+                                <div class="col-lg-4 mil-mb-40">
+                                    <div class="c9-card c9-card-sm mil-up">
+                                        <figure class="mil-image-frame mil-vertical mil-mb-45 c9-img-frame-sm">
+                                            <img src="img/photo/pharos2.jpg" alt="PwnCheck Search Interface" width="600" height="800" loading="lazy" decoding="async">
+                                            <a href="img/photo/pharos2.jpg" data-fancybox="gallery" data-no-swup class="mil-zoom-btn" aria-label="Expand image">
+                                                <img src="img/icons/zoom.svg" alt="" aria-hidden="true">
+                                            </a>
+                                        </figure>
+                                        <h3 class="mil-h4 mil-mb-15">1. Search State</h3>
+                                        <p class="mil-text-sm mil-muted c9-text-reading">A hyper-focused, minimal interface designed solely to encourage input. Extraneous elements are removed to streamline querying.</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 mil-mb-40">
+                                    <div class="c9-card c9-card-sm mil-up">
+                                        <figure class="mil-image-frame mil-vertical mil-mb-45 c9-img-frame-sm">
+                                            <img src="img/photo/pharos2.jpg" alt="PwnCheck Safe State Validation" width="600" height="800" loading="lazy" decoding="async">
+                                            <a href="img/photo/pharos2.jpg" data-fancybox="gallery" data-no-swup class="mil-zoom-btn" aria-label="Expand image">
+                                                <img src="img/icons/zoom.svg" alt="" aria-hidden="true">
+                                            </a>
+                                        </figure>
+                                        <h3 class="mil-h4 mil-mb-15">2. Safe State</h3>
+                                        <p class="mil-text-sm mil-muted c9-text-reading">Delivering positive reinforcement. Uses distinct, reassuring green visual cues and calming copy to confirm data remains uncompromised.</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 mil-mb-40">
+                                    <div class="c9-card c9-card-sm mil-up">
+                                        <figure class="mil-image-frame mil-vertical mil-mb-45 c9-img-frame-sm">
+                                            <img src="img/photo/pharos2.jpg" alt="PwnCheck Breached State Warning" width="600" height="800" loading="lazy" decoding="async">
+                                            <a href="img/photo/pharos2.jpg" data-fancybox="gallery" data-no-swup class="mil-zoom-btn" aria-label="Expand image">
+                                                <img src="img/icons/zoom.svg" alt="" aria-hidden="true">
+                                            </a>
+                                        </figure>
+                                        <h3 class="mil-h4 mil-mb-15">3. Breached State</h3>
+                                        <p class="mil-text-sm mil-muted c9-text-reading">Designed to prevent panic. Uses strict visual hierarchy to highlight <em>what</em> data was leaked and provides immediate mitigation steps.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <div class="mil-divider mil-mb-120 mil-up" aria-hidden="true"></div>
+
+                        <section class="row justify-content-between mil-mb-120" aria-labelledby="system-heading">
+                            <div class="col-lg-4 mil-mb-60">
+                                <h2 id="system-heading" class="mil-up mil-mb-30">System & Language</h2>
+                                <p class="mil-up c9-text-reading-lg">To ensure extreme consistency across development, I engineered a highly scalable design system balancing technical credibility with SaaS approachability.</p>
+                                
+                                <div class="mil-up">
+                                    <div class="c9-sys-type">
+                                        <span class="mil-h2">Aa</span>
+                                        <div>
+                                            <span class="mil-text-sm c9-sys-label">Primary Typeface</span>
+                                            <span class="mil-text-sm mil-muted c9-text-reading">System Sans-Serif</span>
+                                        </div>
+                                    </div>
+                                    <div class="mil-mt-30">
+                                        <span class="mil-text-sm c9-sys-label-lg">Core Brand Palette</span>
+                                        <div class="d-flex">
+                                            <span class="c9-sys-swatch" style="background: var(--c9-page-bg);" aria-label="Brand Dark"></span>
+                                            <span class="c9-sys-swatch" style="background: var(--c9-bg);" aria-label="Brand Elevated"></span>
+                                            <span class="c9-sys-swatch" style="background: var(--c9-accent);" aria-label="Brand Accent"></span>
+                                            <span class="c9-sys-swatch" style="background: var(--c9-cta);" aria-label="Brand Danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-7 mil-mb-60">
+                                <figure class="mil-image-frame mil-horizontal mil-up c9-img-frame">
+                                    <img src="img/photo/pharos2.jpg" alt="Comprehensive Design System Components Showcase" width="800" height="600" loading="lazy" decoding="async">
+                                    <a href="img/photo/pharos2.jpg" data-fancybox="gallery" data-no-swup class="mil-zoom-btn" aria-label="Expand image">
+                                        <img src="img/icons/zoom.svg" alt="" aria-hidden="true">
+                                    </a>
+                                </figure>
+                            </div>
+                        </section>
+
+                        <figure class="mil-image-frame mil-fw mil-up mil-mb-120 c9-img-frame">
+                            <img src="img/photo/pharos2.jpg" alt="C9Pharos Final Mobile UI Showcase Full Render" width="1920" height="1080" loading="lazy" decoding="async">
+                            <a href="img/photo/pharos2.jpg" data-fancybox="gallery" data-no-swup class="mil-zoom-btn" aria-label="Expand image">
+                                <img src="img/icons/zoom.svg" alt="" aria-hidden="true">
+                            </a>
+                        </figure>
+
+                        <section class="row justify-content-between mil-mb-120" aria-labelledby="takeaways-heading">
+                            <div class="col-lg-4 mil-mb-60">
+                                <h2 id="takeaways-heading" class="mil-up mil-mb-30">Key Takeaways</h2>
+                                <p class="mil-up mil-text-lg c9-text-reading">Designing C9Pharos reinforced the critical balance between technical depth and mobile usability in enterprise software.</p>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="row mil-up">
+                                    <div class="col-md-6 mil-mb-30">
+                                        <div class="c9-card c9-card-sm">
+                                            <h3 class="mil-h5 mil-mb-15">System Scalability</h3>
+                                            <p class="mil-text-sm mil-muted c9-text-reading">Built a foundation ensuring future cybersecurity modules integrate seamlessly without breaking existing UX patterns.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mil-mb-30">
+                                        <div class="c9-card c9-card-sm">
+                                            <h3 class="mil-h5 mil-mb-15">Complex Simplification</h3>
+                                            <p class="mil-text-sm mil-muted c9-text-reading">Learned to aggressively abstract massive datasets into actionable, progressive layers of disclosure.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mil-mb-30">
+                                        <div class="c9-card c9-card-sm">
+                                            <h3 class="mil-h5 mil-mb-15">Visual Hierarchy</h3>
+                                            <p class="mil-text-sm mil-muted c9-text-reading">Relied heavily on typography and strict color status conventions to guide user attention to critical threats.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mil-mb-30">
+                                        <div class="c9-card c9-card-sm">
+                                            <h3 class="mil-h5 mil-mb-15">End-to-End Delivery</h3>
+                                            <p class="mil-text-sm mil-muted c9-text-reading">Successfully managed the product pipeline from initial problem definition through to developer QA as a solo designer.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <nav class="mil-works-nav mil-up mil-mb-120" aria-label="Project Navigation">
+                            <a href="project-drone.html" class="mil-link mil-dark mil-arrow-place mil-icon-left" aria-label="Previous project: Drone Management App">
+                                <span>Prev project</span>
+                            </a>
+                            <a href="projects.html" class="mil-link mil-dark" aria-label="View all projects in portfolio">
+                                <span>All projects</span>
+                            </a>
+                            <a href="project-music.html" class="mil-link mil-dark mil-arrow-place" aria-label="Next project: Audio Production Suite">
+                                <span>Next project</span>
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+
+                <section class="mil-soft-bg" aria-label="Contact Call to Action">
+                    <div class="container mil-p-120-120">
+                        <div class="row">
+                            <div class="col-lg-10">
+                                <span class="mil-suptitle mil-suptitle-right mil-suptitle-dark mil-up">Let's build meaningful digital products together.</span>
+                            </div>
+                        </div>
+                        <div class="mil-center">
+                            <h2 class="mil-up mil-mb-60">Ready to start <span class="mil-thin">something new?</span> <br>Let's talk <span class="mil-thin">design</span></h2>
+                            <div class="mil-up d-flex justify-content-center align-items-center" style="gap: 20px; flex-wrap: wrap;">
+                                <a href="mailto:hello@lavleshpandey.com" class="mil-button mil-arrow-place"><span>Email Me</span></a>
+                                <a href="https://linkedin.com/in/lavleshpandey" target="_blank" rel="noopener noreferrer" class="mil-link mil-dark"><span>View LinkedIn</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </article>
+        </main>
+        
+        <footer class="mil-dark-bg">
+            <div class="mi-invert-fix">
+                <div class="container mil-p-120-60">
+                    <div class="row justify-content-between">
+                        <div class="col-md-4 col-lg-4 mil-mb-60">
+                            <div class="mil-muted mil-logo mil-up mil-mb-30">Lavlesh.</div>
+                            <p class="mil-light-soft mil-up mil-mb-30">Lead Product Designer crafting enterprise solutions and scalable design systems.</p>
+                            <a href="mailto:hello@lavleshpandey.com" class="mil-link mil-light mil-up">hello@lavleshpandey.com</a>
+                        </div>
+                        <div class="col-md-7 col-lg-6">
+                            <div class="row justify-content-end">
+                                <div class="col-md-6 col-lg-7">
+                                    <nav class="mil-footer-menu mil-mb-60" aria-label="Footer Navigation Links">
+                                        <ul>
+                                            <li class="mil-up"><a href="index.html">Home</a></li>
+                                            <li class="mil-up mil-active"><a href="projects.html">Projects</a></li>
+                                            <li class="mil-up"><a href="about.html">About</a></li>
+                                            <li class="mil-up"><a href="resume.html">Resume</a></li>
+                                            <li class="mil-up"><a href="contact.html">Contact</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <div class="col-md-6 col-lg-5">
+                                    <ul class="mil-menu-list mil-up mil-mb-60">
+                                        <li><a href="https://linkedin.com/in/lavleshpandey" target="_blank" rel="noopener noreferrer" class="mil-light-soft">LinkedIn</a></li>
+                                        <li><a href="https://behance.net/" target="_blank" rel="noopener noreferrer" class="mil-light-soft">Behance</a></li>
+                                        <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="mil-light-soft">GitHub</a></li>
+                                        <li><a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="mil-light-soft">Download Resume</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between flex-sm-row-reverse">
+                        <div class="col-md-7 col-lg-6">
+                            <div class="row justify-content-between">
+                                <div class="col-md-6 col-lg-5 mil-mb-60">
+                                    <h6 class="mil-muted mil-up mil-mb-30">Location</h6>
+                                    <p class="mil-light-soft mil-up">Thailand <br><span class="mil-no-wrap">Available Worldwide</span></p>
+                                </div>
+                                <div class="col-md-6 col-lg-5 mil-mb-60">
+                                    <h6 class="mil-muted mil-up mil-mb-30">Status</h6>
+                                    <p class="mil-light-soft mil-up">Open to new opportunities <br><span class="mil-no-wrap">and freelance projects</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-lg-6 mil-mb-60">
+                            <div class="mil-vert-between">
+                                <div class="mil-mb-30">
+                                    <ul class="mil-social-icons mil-up">
+                                        <li><a href="https://linkedin.com/in/lavleshpandey" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn"> <i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                        <li><a href="https://behance.net/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Behance"> <i class="fa fa-behance" aria-hidden="true"></i></a></li>
+                                        <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub"> <i class="fa fa-github" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                                <p class="mil-light-soft mil-up">© 2026 Lavlesh Pandey. All Rights Reserved.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <div class="mil-hidden-elements" aria-hidden="true">
+            <div class="mil-dodecahedron">
+                <div class="mil-pentagon"><div></div><div></div><div></div><div></div><div></div></div>
+                <div class="mil-pentagon"><div></div><div></div><div></div><div></div><div></div></div>
+                <div class="mil-pentagon"><div></div><div></div><div></div><div></div><div></div></div>
+                <div class="mil-pentagon"><div></div><div></div><div></div><div></div><div></div></div>
+                <div class="mil-pentagon"><div></div><div></div><div></div><div></div><div></div></div>
+                <div class="mil-pentagon"><div></div><div></div><div></div><div></div><div></div></div>
+                <div class="mil-pentagon"><div></div><div></div><div></div><div></div><div></div></div>
+                <div class="mil-pentagon"><div></div><div></div><div></div><div></div><div></div></div>
+                <div class="mil-pentagon"><div></div><div></div><div></div><div></div><div></div></div>
+                <div class="mil-pentagon"><div></div><div></div><div></div><div></div><div></div></div>
+                <div class="mil-pentagon"><div></div><div></div><div></div><div></div><div></div></div>
+                <div class="mil-pentagon"><div></div><div></div><div></div><div></div><div></div></div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="mil-arrow">
+                <path d="M 14 5.3417969 C 13.744125 5.3417969 13.487969 5.4412187 13.292969 5.6367188 L 13.207031 5.7226562 C 12.816031 6.1136563 12.816031 6.7467188 13.207031 7.1367188 L 17.070312 11 L 4 11 C 3.448 11 3 11.448 3 12 C 3 12.552 3.448 13 4 13 L 17.070312 13 L 13.207031 16.863281 C 12.816031 17.254281 12.816031 17.887344 13.207031 18.277344 L 13.292969 18.363281 C 13.683969 18.754281 14.317031 18.754281 14.707031 18.363281 L 20.363281 12.707031 C 20.754281 12.316031 20.754281 11.682969 20.363281 11.292969 L 14.707031 5.6367188 C 14.511531 5.4412187 14.255875 5.3417969 14 5.3417969 z" />
+            </svg>
+            <svg width="250" viewBox="0 0 300 1404" fill="none" xmlns="http://www.w3.org/2000/svg" class="mil-lines">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M1 892L1 941H299V892C299 809.71 232.29 743 150 743C67.7096 743 1 809.71 1 892ZM0 942H300V892C300 809.157 232.843 742 150 742C67.1573 742 0 809.157 0 892L0 942Z" class="mil-move" />
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M299 146V97L1 97V146C1 228.29 67.7096 295 150 295C232.29 295 299 228.29 299 146ZM300 96L0 96V146C0 228.843 67.1573 296 150 296C232.843 296 300 228.843 300 146V96Z" class="mil-move" />
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M299 1H1V1403H299V1ZM0 0V1404H300V0H0Z" />
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M150 -4.37115e-08L150 1404L149 1404L149 0L150 -4.37115e-08Z" />
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M150 1324C232.29 1324 299 1257.29 299 1175C299 1092.71 232.29 1026 150 1026C67.7096 1026 1 1092.71 1 1175C1 1257.29 67.7096 1324 150 1324ZM150 1325C232.843 1325 300 1257.84 300 1175C300 1092.16 232.843 1025 150 1025C67.1573 1025 0 1092.16 0 1175C0 1257.84 67.1573 1325 150 1325Z" class="mil-move" />
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M300 1175H0V1174H300V1175Z" class="mil-move" />
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M150 678C232.29 678 299 611.29 299 529C299 446.71 232.29 380 150 380C67.7096 380 1 446.71 1 529C1 611.29 67.7096 678 150 678ZM150 679C232.843 679 300 611.843 300 529C300 446.157 232.843 379 150 379C67.1573 379 0 446.157 0 529C0 611.843 67.1573 679 150 679Z" class="mil-move" />
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M299 380H1V678H299V380ZM0 379V679H300V379H0Z" class="mil-move" />
+            </svg>
+        </div>
+    </div>
+
+    <script src="js/plugins/jquery.min.js"></script>
+    <script src="js/plugins/swup.min.js"></script>
+    <script src="js/plugins/swiper.min.js"></script>
+    <script src="js/plugins/fancybox.min.js"></script>
+    <script src="js/plugins/gsap.min.js"></script>
+    <script src="js/plugins/smooth-scroll.js"></script>
+    <script src="js/plugins/ScrollTrigger.min.js"></script>
+    <script src="js/plugins/ScrollTo.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
