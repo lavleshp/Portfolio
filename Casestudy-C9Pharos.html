@@ -35,240 +35,6 @@
     <link rel="stylesheet" href="css/plugins/fancybox.min.css">
     <link rel="stylesheet" href="css/style.css">
 
-    <style>
-        :root {
-            --c9-border: rgba(255, 255, 255, 0.08);
-            --c9-bg: #120f26; 
-            --c9-page-bg: #0a0915; 
-            --c9-dark: #ffffff; 
-            --c9-muted: #9ba1b0; 
-            --c9-accent: #642bff; 
-            --c9-accent-gradient: linear-gradient(90deg, #3725cf, #642bff);
-            --c9-cta: #ff1b51; 
-            --c9-radius: 12px;
-            --c9-shadow-sm: 0 8px 24px rgba(0,0,0,0.4);
-            --c9-shadow-md: 0 12px 32px rgba(0,0,0,0.5);
-            --c9-shadow-lg: 0 24px 60px rgba(0,0,0,0.6);
-            --c9-shadow-hover: 0 16px 40px rgba(100, 43, 255, 0.15);
-        }
-
-        body, .mil-wrapper, .mil-content, .mil-menu-frame, .mil-curtain, .mil-preloader {
-            background-color: var(--c9-page-bg) !important;
-            color: var(--c9-muted) !important;
-        }
-
-        .mil-frame { background-color: transparent !important; }
-        .mil-soft-bg { background-color: #0d0b1a !important; }
-        .mil-dark-bg { background-color: #06050d !important; }
-        .mil-divider { background-color: var(--c9-border) !important; }
-        
-        h1, h2, h3, h4, h5, h6, .mil-h1, .mil-h2, .mil-h3, .mil-h4, .mil-h5, .mil-h6, .mil-dark, .mil-logo {
-            color: var(--c9-dark) !important;
-        }
-        
-        p, .mil-text-sm, .mil-text-lg, li { color: var(--c9-muted) !important; }
-        .mil-muted { color: var(--c9-muted) !important; }
-        
-        .mil-button {
-            background: var(--c9-accent-gradient) !important;
-            border-color: transparent !important;
-            color: #ffffff !important;
-            box-shadow: 0 8px 24px rgba(100, 43, 255, 0.25) !important;
-        }
-        
-        .mil-link.mil-dark span { color: var(--c9-dark) !important; }
-        .mil-link.mil-dark:hover span { color: var(--c9-accent) !important; }
-        .mil-arrow path { fill: var(--c9-dark) !important; }
-        .mil-progress-track .mil-progress { background-color: var(--c9-accent) !important; }
-        .mil-ball { border-color: rgba(255, 255, 255, 0.2) !important; }
-        .mil-menu-btn span, .mil-menu-btn span::after, .mil-menu-btn span::before { background: var(--c9-dark) !important; }
-        
-        .c9-card {
-            background: var(--c9-bg);
-            border: 1px solid var(--c9-border);
-            border-radius: var(--c9-radius);
-            padding: 48px;
-            height: 100%;
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-        }
-        
-        .c9-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--c9-shadow-hover);
-            border-color: var(--c9-accent);
-        }
-        
-        .c9-card-sm { padding: 40px; }
-        
-        /* ===========================
-           C9 Feature Image
-        =========================== */
-        .c9-img-frame-md {
-            position: relative;
-            overflow: hidden;
-            border-radius: 20px;
-            background: #14122b;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-        }
-
-        .c9-img-frame-md a:first-child {
-            display: block;
-        }
-
-        .c9-img-frame-md img {
-            display: block;
-            width: 100%;
-            height: auto;
-            position: relative !important;
-            top: auto !important;
-            left: auto !important;
-            object-fit: contain !important;
-            object-position: center;
-            transition: 0.4s ease;
-        }
-
-        .c9-img-frame-md:hover img {
-            transform: scale(1.02);
-        }
-
-        .c9-img-frame-md .mil-zoom-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 20;
-        }
-
-        /* Disable Ashley's aspect ratio */
-        .c9-img-frame-md.mil-horizontal {
-            padding-bottom: 0 !important;
-        }
-
-        .c9-img-frame-md > img {
-            position: relative !important;
-        }
-        
-        .c9-callout { background: var(--c9-bg); border-left: 3px solid var(--c9-accent); border-radius: 0 var(--c9-radius) var(--c9-radius) 0; }
-        .c9-quote-line { border-left: 2px solid var(--c9-accent); padding-left: 20px; }
-        .c9-ia-box { background: var(--c9-bg); border-radius: var(--c9-radius); border: 1px solid var(--c9-border); justify-content: space-between; }
-        
-        .c9-label { text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin: 0; }
-        .c9-stat-val { font-weight: 300; }
-        .c9-stat-unit { font-size: 0.6em; }
-        .c9-stat-unit-ml { font-size: 0.6em; margin-left: 4px; }
-        .c9-opacity-15 { opacity: 0.15; }
-        .c9-m-0 { margin: 0 !important; }
-
-        .c9-text-reading { line-height: 1.8; color: var(--c9-muted) !important; margin-bottom: 0; }
-        .c9-text-reading-mb { line-height: 1.8; color: var(--c9-muted) !important; margin-bottom: 30px; }
-        .c9-text-reading-lg { line-height: 1.8; color: var(--c9-muted) !important; margin-bottom: 45px; }
-        
-        .c9-chip-list { display: flex; flex-wrap: wrap; gap: 12px; list-style: none; padding: 0; margin: 0; }
-        .c9-chip { background: var(--c9-bg); border: 1px solid var(--c9-border); border-radius: 40px; padding: 10px 24px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--c9-dark); transition: all 0.3s ease; cursor: default; }
-        .c9-chip:hover { background: var(--c9-accent); color: #fff !important; border-color: var(--c9-accent); }
-        
-        .c9-timeline { display: flex; justify-content: space-between; position: relative; padding-top: 24px; }
-        .c9-timeline::before { content: ''; position: absolute; top: 29px; left: 0; width: 100%; height: 2px; background: var(--c9-border); z-index: 1; }
-        .c9-timeline-step { position: relative; z-index: 2; background: transparent; padding-right: 24px; flex: 1; }
-        .c9-timeline-step:last-child { padding-right: 0; flex: 0 1 auto; }
-        .c9-timeline-node { width: 12px; height: 12px; background: var(--c9-page-bg); border: 2px solid var(--c9-border); border-radius: 50%; margin-bottom: 24px; transition: all 0.3s ease; }
-        .c9-timeline-step:hover .c9-timeline-node, .c9-timeline-step.active .c9-timeline-node { background: var(--c9-accent); border-color: var(--c9-accent); transform: scale(1.2); box-shadow: 0 0 10px var(--c9-accent); }
-        
-        .c9-ia-container { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
-        .c9-ia-pill-base { padding: 12px 24px; border-radius: 40px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
-        .c9-ia-pill { background: var(--c9-accent); color: #fff; border: 1px solid var(--c9-accent); }
-        .c9-ia-pill-outline { background: transparent; border: 1px solid var(--c9-border); color: var(--c9-dark); }
-        .c9-ia-arrow { color: var(--c9-border); font-size: 14px; }
-        
-        .c9-sys-swatch { width: 48px; height: 48px; border-radius: 50%; display: inline-block; margin-right: 12px; border: 1px solid var(--c9-border); }
-        .c9-sys-type { display: flex; align-items: baseline; gap: 16px; margin-bottom: 16px; border-bottom: 1px solid var(--c9-border); padding-bottom: 16px; }
-        .c9-sys-label { display: block; margin-bottom: 4px; color: var(--c9-dark); }
-        .c9-sys-label-lg { display: block; margin-bottom: 15px; color: var(--c9-dark); }
-        .c9-sys-list { border-bottom: 1px solid var(--c9-border); padding-bottom: 15px; margin-bottom: 15px; font-size: 14px; font-weight: 500; display: flex; align-items: center; color: var(--c9-dark); }
-        .c9-sys-list:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-        .c9-sys-list::before { content: ''; display: inline-block; width: 6px; height: 6px; background: var(--c9-accent); margin-right: 15px; border-radius: 50%; }
-        
-        .c9-stats-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 30px; text-align: center; margin: 0; }
-        .c9-optical-align { display: flex; flex-direction: column; justify-content: center; height: 100%; }
-        
-        .c9-evolution-item small {
-            display: block;
-            margin-top: 3px;
-            font-size: 11px;
-            line-height: 1.35;
-            letter-spacing: 0.2px;
-            color: rgba(255, 255, 255, 0.55);
-        }
-        
-        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
-        
-        .c9-evolution {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-top: 40px;
-            flex-wrap: nowrap;
-        }
-
-        .c9-evolution-item {
-            flex: 1;
-            min-width: 0;
-            padding: 18px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            background: #141321;
-            transition: 0.3s;
-        }
-
-        .c9-evolution-item.active {
-            border-color: #7c4dff;
-            box-shadow: 0 0 25px rgba(124, 77, 255, 0.15);
-        }
-
-        .c9-tag {
-            display: inline-block;
-            margin-bottom: 10px;
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #9d95b8;
-        }
-
-        .c9-evolution-item h5 {
-            margin: 0 0 6px;
-            font-size: 20px;
-            color: #fff;
-        }
-
-        .c9-evolution-item small {
-            display: block;
-            color: #8c89a6;
-            line-height: 1.5;
-        }
-.c9-evolution-item{
-    min-height: 165px;
-    display:flex;
-    flex-direction:column;
-}
-
-        .c9-arrow{
-    color:#7B4DFF;
-    font-size:26px;
-    font-weight:700;
-}
-
-        @media (max-width: 991px) {
-            .c9-timeline { flex-direction: column; }
-            .c9-timeline::before { width: 2px; height: 100%; left: 5px; top: 0; }
-            .c9-timeline-step { padding-right: 0; padding-left: 32px; margin-bottom: 40px; }
-            .c9-timeline-node { position: absolute; left: 0; top: 5px; margin-bottom: 0; }
-            .c9-stats-grid { grid-template-columns: repeat(2, 1fr); }
-            .c9-stats-grid > div:last-child { grid-column: span 2; }
-        }
-    </style>
-
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -286,7 +52,7 @@
             },
             {
                 "@type": "CreativeWork",
-                "name": "C9Pharos Platform Design Case Study",
+                "@name": "C9Pharos Platform Design Case Study",
                 "headline": "Enterprise Cybersecurity Platform Mobile UI/UX Redesign",
                 "author": {"@id": "https://lavleshpandey.com/#person"},
                 "image": "https://lavleshpandey.com/img/photo/pharos2.jpg"
@@ -329,24 +95,6 @@
             <div class="mil-more-text">Explore</div>
             <div class="mil-choose-text">Select</div>
         </div>
-
-        <!-- 
-        <div class="mil-preloader">
-            <div class="mil-preloader-animation">
-                <div class="mil-pos-abs mil-animation-1">
-                    <p class="mil-h3 mil-muted mil-thin">Product</p>
-                    <p class="mil-h3 mil-muted">Design</p>
-                    <p class="mil-h3 mil-muted mil-thin">Excellence</p>
-                </div>
-                <div class="mil-pos-abs mil-animation-2">
-                    <div class="mil-reveal-frame">
-                        <p class="mil-reveal-box"></p>
-                        <p class="mil-h3 mil-muted mil-thin">lavleshpandey.com</p>
-                    </div>
-                </div>
-            </div>
-        </div> 
-        -->
 
         <div class="mil-progress-track">
             <div class="mil-progress"></div>
@@ -428,7 +176,239 @@
         </div>
 
         <main class="mil-content">
-            <article id="swupMain" class="mil-main-transition">
+            <article id="swupMain" class="mil-main-transition c9-page">
+                <style>
+                    :root {
+                        --c9-border: rgba(255, 255, 255, 0.08);
+                        --c9-bg: #120f26; 
+                        --c9-page-bg: #0a0915; 
+                        --c9-dark: #ffffff; 
+                        --c9-muted: #9ba1b0; 
+                        --c9-accent: #642bff; 
+                        --c9-accent-gradient: linear-gradient(90deg, #3725cf, #642bff);
+                        --c9-cta: #ff1b51; 
+                        --c9-radius: 12px;
+                        --c9-shadow-sm: 0 8px 24px rgba(0,0,0,0.4);
+                        --c9-shadow-md: 0 12px 32px rgba(0,0,0,0.5);
+                        --c9-shadow-lg: 0 24px 60px rgba(0,0,0,0.6);
+                        --c9-shadow-hover: 0 16px 40px rgba(100, 43, 255, 0.15);
+                    }
+            
+                    .c9-page {
+                        background-color: var(--c9-page-bg) !important;
+                        color: var(--c9-muted) !important;
+                    }
+            
+                    .c9-page .mil-frame { background-color: transparent !important; }
+                    .c9-page .mil-soft-bg { background-color: #0d0b1a !important; }
+                    .c9-page .mil-dark-bg { background-color: #06050d !important; }
+                    .c9-page .mil-divider { background-color: var(--c9-border) !important; }
+                    
+                    .c9-page h1, .c9-page h2, .c9-page h3, .c9-page h4, .c9-page h5, .c9-page h6, 
+                    .c9-page .mil-h1, .c9-page .mil-h2, .c9-page .mil-h3, .c9-page .mil-h4, .c9-page .mil-h5, .c9-page .mil-h6, 
+                    .c9-page .mil-dark, .c9-page .mil-logo {
+                        color: var(--c9-dark) !important;
+                    }
+                    
+                    .c9-page p, .c9-page .mil-text-sm, .c9-page .mil-text-lg, .c9-page li { color: var(--c9-muted) !important; }
+                    .c9-page .mil-muted { color: var(--c9-muted) !important; }
+                    
+                    .c9-page .mil-button {
+                        background: var(--c9-accent-gradient) !important;
+                        border-color: transparent !important;
+                        color: #ffffff !important;
+                        box-shadow: 0 8px 24px rgba(100, 43, 255, 0.25) !important;
+                    }
+                    
+                    .c9-page .mil-link.mil-dark span { color: var(--c9-dark) !important; }
+                    .c9-page .mil-link.mil-dark:hover span { color: var(--c9-accent) !important; }
+                    .c9-page .mil-arrow path { fill: var(--c9-dark) !important; }
+                    
+                    .c9-card {
+                        background: var(--c9-bg);
+                        border: 1px solid var(--c9-border);
+                        border-radius: var(--c9-radius);
+                        padding: 48px;
+                        height: 100%;
+                        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-start;
+                    }
+                    
+                    .c9-card:hover {
+                        transform: translateY(-4px);
+                        box-shadow: var(--c9-shadow-hover);
+                        border-color: var(--c9-accent);
+                    }
+                    
+                    .c9-card-sm { padding: 40px; }
+                    
+                    /* ===========================
+                       C9 Feature Image
+                    =========================== */
+                    .c9-img-frame-md {
+                        position: relative;
+                        overflow: hidden;
+                        border-radius: 20px;
+                        background: #14122b;
+                        border: 1px solid rgba(255, 255, 255, 0.06);
+                    }
+            
+                    .c9-img-frame-md a:first-child {
+                        display: block;
+                    }
+            
+                    .c9-img-frame-md img {
+                        display: block;
+                        width: 100%;
+                        height: auto;
+                        position: relative !important;
+                        top: auto !important;
+                        left: auto !important;
+                        object-fit: contain !important;
+                        object-position: center;
+                        transition: 0.4s ease;
+                    }
+            
+                    .c9-img-frame-md:hover img {
+                        transform: scale(1.02);
+                    }
+            
+                    .c9-img-frame-md .mil-zoom-btn {
+                        position: absolute;
+                        top: 20px;
+                        right: 20px;
+                        z-index: 20;
+                    }
+            
+                    /* Disable Ashley's aspect ratio */
+                    .c9-img-frame-md.mil-horizontal {
+                        padding-bottom: 0 !important;
+                    }
+            
+                    .c9-img-frame-md > img {
+                        position: relative !important;
+                    }
+                    
+                    .c9-callout { background: var(--c9-bg); border-left: 3px solid var(--c9-accent); border-radius: 0 var(--c9-radius) var(--c9-radius) 0; }
+                    .c9-quote-line { border-left: 2px solid var(--c9-accent); padding-left: 20px; }
+                    .c9-ia-box { background: var(--c9-bg); border-radius: var(--c9-radius); border: 1px solid var(--c9-border); justify-content: space-between; }
+                    
+                    .c9-label { text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin: 0; }
+                    .c9-stat-val { font-weight: 300; }
+                    .c9-stat-unit { font-size: 0.6em; }
+                    .c9-stat-unit-ml { font-size: 0.6em; margin-left: 4px; }
+                    .c9-opacity-15 { opacity: 0.15; }
+                    .c9-m-0 { margin: 0 !important; }
+            
+                    .c9-text-reading { line-height: 1.8; color: var(--c9-muted) !important; margin-bottom: 0; }
+                    .c9-text-reading-mb { line-height: 1.8; color: var(--c9-muted) !important; margin-bottom: 30px; }
+                    .c9-text-reading-lg { line-height: 1.8; color: var(--c9-muted) !important; margin-bottom: 45px; }
+                    
+                    .c9-chip-list { display: flex; flex-wrap: wrap; gap: 12px; list-style: none; padding: 0; margin: 0; }
+                    .c9-chip { background: var(--c9-bg); border: 1px solid var(--c9-border); border-radius: 40px; padding: 10px 24px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--c9-dark); transition: all 0.3s ease; cursor: default; }
+                    .c9-chip:hover { background: var(--c9-accent); color: #fff !important; border-color: var(--c9-accent); }
+                    
+                    .c9-timeline { display: flex; justify-content: space-between; position: relative; padding-top: 24px; }
+                    .c9-timeline::before { content: ''; position: absolute; top: 29px; left: 0; width: 100%; height: 2px; background: var(--c9-border); z-index: 1; }
+                    .c9-timeline-step { position: relative; z-index: 2; background: transparent; padding-right: 24px; flex: 1; }
+                    .c9-timeline-step:last-child { padding-right: 0; flex: 0 1 auto; }
+                    .c9-timeline-node { width: 12px; height: 12px; background: var(--c9-page-bg); border: 2px solid var(--c9-border); border-radius: 50%; margin-bottom: 24px; transition: all 0.3s ease; }
+                    .c9-timeline-step:hover .c9-timeline-node, .c9-timeline-step.active .c9-timeline-node { background: var(--c9-accent); border-color: var(--c9-accent); transform: scale(1.2); box-shadow: 0 0 10px var(--c9-accent); }
+                    
+                    .c9-ia-container { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+                    .c9-ia-pill-base { padding: 12px 24px; border-radius: 40px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+                    .c9-ia-pill { background: var(--c9-accent); color: #fff; border: 1px solid var(--c9-accent); }
+                    .c9-ia-pill-outline { background: transparent; border: 1px solid var(--c9-border); color: var(--c9-dark); }
+                    .c9-ia-arrow { color: var(--c9-border); font-size: 14px; }
+                    
+                    .c9-sys-swatch { width: 48px; height: 48px; border-radius: 50%; display: inline-block; margin-right: 12px; border: 1px solid var(--c9-border); }
+                    .c9-sys-type { display: flex; align-items: baseline; gap: 16px; margin-bottom: 16px; border-bottom: 1px solid var(--c9-border); padding-bottom: 16px; }
+                    .c9-sys-label { display: block; margin-bottom: 4px; color: var(--c9-dark); }
+                    .c9-sys-label-lg { display: block; margin-bottom: 15px; color: var(--c9-dark); }
+                    .c9-sys-list { border-bottom: 1px solid var(--c9-border); padding-bottom: 15px; margin-bottom: 15px; font-size: 14px; font-weight: 500; display: flex; align-items: center; color: var(--c9-dark); }
+                    .c9-sys-list:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+                    .c9-sys-list::before { content: ''; display: inline-block; width: 6px; height: 6px; background: var(--c9-accent); margin-right: 15px; border-radius: 50%; }
+                    
+                    .c9-stats-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 30px; text-align: center; margin: 0; }
+                    .c9-optical-align { display: flex; flex-direction: column; justify-content: center; height: 100%; }
+                    
+                    .c9-evolution-item small {
+                        display: block;
+                        margin-top: 3px;
+                        font-size: 11px;
+                        line-height: 1.35;
+                        letter-spacing: 0.2px;
+                        color: rgba(255, 255, 255, 0.55);
+                    }
+                    
+                    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+                    
+                    .c9-evolution {
+                        display: flex;
+                        align-items: center;
+                        gap: 16px;
+                        margin-top: 40px;
+                        flex-wrap: nowrap;
+                    }
+            
+                    .c9-evolution-item {
+                        flex: 1;
+                        min-width: 0;
+                        padding: 18px;
+                        border: 1px solid rgba(255, 255, 255, 0.08);
+                        border-radius: 16px;
+                        background: #141321;
+                        transition: 0.3s;
+                    }
+            
+                    .c9-evolution-item.active {
+                        border-color: #7c4dff;
+                        box-shadow: 0 0 25px rgba(124, 77, 255, 0.15);
+                    }
+            
+                    .c9-tag {
+                        display: inline-block;
+                        margin-bottom: 10px;
+                        font-size: 10px;
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                        color: #9d95b8;
+                    }
+            
+                    .c9-evolution-item h5 {
+                        margin: 0 0 6px;
+                        font-size: 20px;
+                        color: #fff;
+                    }
+            
+                    .c9-evolution-item small {
+                        display: block;
+                        color: #8c89a6;
+                        line-height: 1.5;
+                    }
+                    .c9-evolution-item{
+                        min-height: 165px;
+                        display:flex;
+                        flex-direction:column;
+                    }
+            
+                    .c9-arrow{
+                        color:#7B4DFF;
+                        font-size:26px;
+                        font-weight:700;
+                    }
+            
+                    @media (max-width: 991px) {
+                        .c9-timeline { flex-direction: column; }
+                        .c9-timeline::before { width: 2px; height: 100%; left: 5px; top: 0; }
+                        .c9-timeline-step { padding-right: 0; padding-left: 32px; margin-bottom: 40px; }
+                        .c9-timeline-node { position: absolute; left: 0; top: 5px; margin-bottom: 0; }
+                        .c9-stats-grid { grid-template-columns: repeat(2, 1fr); }
+                        .c9-stats-grid > div:last-child { grid-column: span 2; }
+                    }
+                </style>
                 <header class="mil-inner-banner" aria-label="Project Hero Banner">
                     <div class="mil-banner-content mil-up">
                         <div class="mil-animation-frame" aria-hidden="true">
@@ -459,31 +439,6 @@
                     </figure>
                     
                     <div class="container">
-                        <!-- 
-                        <section class="row justify-content-between mil-up mil-center mil-mb-80">
-                            <div class="col-lg-2 col-md-4 col-6 mil-mb-30">
-                                <h3 class="mil-mb-15">10K+</h3>
-                                <p class="mil-text-sm mil-muted">Downloads</p>
-                            </div>
-                            <div class="col-lg-2 col-md-4 col-6 mil-mb-30">
-                                <h3 class="mil-mb-15">4.5★</h3>
-                                <p class="mil-text-sm mil-muted">Play Rating</p>
-                            </div>
-                            <div class="col-lg-2 col-md-4 col-6 mil-mb-30">
-                                <h3 class="mil-mb-15">66</h3>
-                                <p class="mil-text-sm mil-muted">Reviews</p>
-                            </div>
-                            <div class="col-lg-2 col-md-4 col-6 mil-mb-30">
-                                <h3 class="mil-mb-15">2 Mo.</h3>
-                                <p class="mil-text-sm mil-muted">Duration</p>
-                            </div>
-                            <div class="col-lg-2 col-md-4 col-12 mil-mb-30">
-                                <h3 class="mil-mb-15">Solo</h3>
-                                <p class="mil-text-sm mil-muted">Designer</p>
-                            </div>
-                        </section> 
-                        -->
-
                         <div class="mil-divider mil-mb-120 mil-up" aria-hidden="true"></div>
 
                         <section class="row justify-content-between mil-mb-120" aria-labelledby="overview-heading">
@@ -492,19 +447,6 @@
                             </div>
                             <div class="col-lg-7">
                                 <p class="mil-up mil-text-lg c9-text-reading-lg">C9Pharos is an enterprise cybersecurity platform designed to help organizations monitor website health, SSL certificates, uptime, domain information, vulnerabilities, email breaches, and security intelligence from a single application.</p>
-                                
-                                <!-- 
-                                <dl class="row mil-up">
-                                    <div class="col-md-6 mil-mb-30">
-                                        <dt class="mil-h6 mil-mb-15">Role</dt>
-                                        <dd class="mil-text-sm mil-muted c9-text-reading">Lead UI/UX Designer</dd>
-                                    </div>
-                                    <div class="col-md-6 mil-mb-30">
-                                        <dt class="mil-h6 mil-mb-15">Platform</dt>
-                                        <dd class="mil-text-sm mil-muted c9-text-reading">Android Mobile App</dd>
-                                    </div>
-                                </dl> 
-                                -->
                             </div>
                         </section>
 
@@ -662,10 +604,10 @@
                         <section class="row align-items-center justify-content-between mil-mb-120" aria-label="Feature: Gradual Onboarding">
                             <div class="col-lg-6 mil-mb-40">
                                 <figure class="mil-image-frame mil-horizontal mil-up c9-img-frame-md">
-                                    <a href="img/photo/pharos3.png" data-fancybox="gallery" data-no-swup aria-label="Expand image">
-                                        <img src="img/photo/pharos3.png" alt="Gradual Onboarding">
+                                    <a href="img/photo/pharos5.png" data-fancybox="gallery" data-no-swup aria-label="Expand image">
+                                        <img src="img/photo/pharos5.png" alt="Gradual Onboarding">
                                     </a>
-                                    <a href="img/photo/pharos3.png" class="mil-zoom-btn" data-fancybox="gallery" data-no-swup>
+                                    <a href="img/photo/pharos5.png" class="mil-zoom-btn" data-fancybox="gallery" data-no-swup>
                                         <img src="img/icons/zoom.svg" alt="" aria-hidden="true">
                                     </a>
                                 </figure>
